@@ -50,6 +50,7 @@ def get_posts(task_instance):
             os.makedirs(os.path.dirname(filename), exist_ok=True)
             with open(filename, "w") as f:
                 f.write(content)
+                print(f'Created file {filename}')
 
             subreddit_and_files.append((sub[0], filename))
 
