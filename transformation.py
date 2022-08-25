@@ -1,4 +1,3 @@
-from tkinter import N
 from pyspark.sql import SparkSession, Row
 from pyspark.sql.functions import desc, lit
 from pyspark.sql.types import DateType

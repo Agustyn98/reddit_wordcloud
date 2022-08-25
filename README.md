@@ -10,4 +10,6 @@ these are spark's dependencies for gcs and bq
 
 4. copy pipeline.py, functions.py transformation.py and stop_words.txt to wherever your DAGs folder is configured to be
 
+5. Permissions: export GOOGLE_APPLICATION_CREDENTIALS="path/to/key.json"
+
 5. run the dag from airflow's UI
