@@ -81,6 +81,7 @@ def upload_files(task_instance):
         objects.append(object_path)
         blob = bucket.blob(object_path)
         blob.upload_from_filename(filepath)
+        print(f'Uploaded to {object_path}')
 
     subreddit_and_object.append([last_subreddit, objects])
 
