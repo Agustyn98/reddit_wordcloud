@@ -10,7 +10,6 @@ def transform(task_instance):
 
     objects = task_instance.xcom_pull(task_ids="upload_to_storage", key="return_value")
 
-    stop_words = spark.read.text("gs://reddit-posts2/stop_words.txt")
 
     for object in objects:
         bucket_name = "reddit-posts2"
@@ -55,8 +54,7 @@ def transform(task_instance):
             lambda s: re.sub("\W+", " ", s)
         )  # remove non-alphanumeric characters, save for blank space
 
-        a, b = "áéíóúü", "aeiouu"
-        trans = str.maketrans(a, b)
+        trans = str.maketrans("áéíóúü", "aeiouu")
         rdd = rdd.map(lambda s: s.translate(trans))  # remove tilde: á -> a, é -> e ...
         rdd = rdd.map(lambda s: s.lower())
         rdd = rdd.flatMap(lambda s: s.split(" "))
@@ -65,9 +63,12 @@ def transform(task_instance):
         row = Row("word")
         df = rdd.map(row).toDF()
 
-        df = df.join(stop_words, df.word == stop_words.value, how="left_anti")
+        # Removing stop words (la, los, aquí, etc.)
+        #stop_words = spark.read.text("gs://reddit-posts2/stop_words.txt")
+        #df = df.join(stop_words, df.word == stop_words.value, how="left_anti")
+
         df = df.groupBy(df["word"]).count().sort(desc("count"))
-        df = df.filter("count > 5")
+        df = df.filter("count > 2")
         df = df.withColumn("subreddit", lit(subreddit))
         df = df.withColumn("date", lit(date).cast(DateType()))
 

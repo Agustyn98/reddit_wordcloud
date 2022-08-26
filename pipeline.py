@@ -1,6 +1,7 @@
 from datetime import timedelta, datetime
 from airflow import DAG
 from airflow.operators.python import PythonOperator
+from airflow.operators.bash import BashOperator
 from transformation import transform
 from functions import get_top_posts, get_posts, upload_files
 
@@ -8,8 +9,7 @@ from functions import get_top_posts, get_posts, upload_files
 num_posts = "30"
 urls = {
     "argentina": "https://www.reddit.com/r/argentina/top/.json?limit=" + num_posts,
-    # "RepublicaArgentina": "https://www.reddit.com/r/RepublicaArgentina/top/.json?limit="
-    # + num_posts,
+    "devsarg": "https://www.reddit.com/r/devsarg/top/.json?limit=" + num_posts,
     "Republica_Argentina": "https://www.reddit.com/r/Republica_Argentina/top/.json?limit="
     + num_posts,
     "dankgentina": "https://www.reddit.com/r/dankgentina/top/.json?limit=" + num_posts,
@@ -39,4 +39,6 @@ with DAG(
 
     t4 = PythonOperator(task_id="transformation", python_callable=transform)
 
-    t1 >> t2 >> t3 >> t4
+    t5 = BashOperator(task_id="clean_files", bash_command="rm -f /tmp/*.json")
+
+    t1 >> t2 >> t3 >> [t4, t5]
