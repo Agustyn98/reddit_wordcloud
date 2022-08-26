@@ -630,6 +630,7 @@ usas
 uso
 usted
 va
+vas
 vais
 valor
 vamos
