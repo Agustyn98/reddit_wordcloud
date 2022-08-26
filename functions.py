@@ -6,6 +6,9 @@ from google.cloud import storage
 
 
 def get_top_posts(urls={}):
+    """
+    Get a list of the links of the top daily posts for each subreddit
+    """
     top_posts = []
     for url in urls:
         response = requests.get(urls[url], headers={"User-agent": "Not_a_Bot_941"})
@@ -22,6 +25,9 @@ def get_top_posts(urls={}):
 
 
 def get_links_from_subreddit(post):
+    """
+    Parse the links from the JSON that's coming from the API
+    """
     links = []
     data = json.loads(post)  # dictionary
     for child in data["data"]["children"]:
@@ -32,6 +38,9 @@ def get_links_from_subreddit(post):
 
 
 def get_posts(task_instance):
+    """
+    Download a copy of each post from the top daily posts of each subreddit
+    """
     subreddits_and_links = task_instance.xcom_pull(
         task_ids="get_links", key="return_value"
     )
@@ -43,14 +52,13 @@ def get_posts(task_instance):
                 headers={"User-agent": "beepBoop123"},
             )
             content = response.text
-            dt = datetime.now()
-            timestamp = str(datetime.timestamp(dt))
+            timestamp = str(datetime.timestamp(datetime.now()))
             filename = "/tmp/" + sub[0] + " " + timestamp + ".json"
 
             os.makedirs(os.path.dirname(filename), exist_ok=True)
             with open(filename, "w") as f:
                 f.write(content)
-                print(f'Created file {filename}')
+                print(f"Created file {filename}")
 
             subreddit_and_files.append((sub[0], filename))
 
@@ -58,6 +66,9 @@ def get_posts(task_instance):
 
 
 def upload_files(task_instance):
+    """
+    Upload the files to Cloud Storage and return a list with the subreddit and a list of each of its objects
+    """
     files = task_instance.xcom_pull(task_ids="get_files", key="return_value")
 
     subreddit_and_object = []
@@ -81,7 +92,7 @@ def upload_files(task_instance):
         objects.append(object_path)
         blob = bucket.blob(object_path)
         blob.upload_from_filename(filepath)
-        print(f'Uploaded to {object_path}')
+        print(f"Uploaded to {object_path}")
 
     subreddit_and_object.append([last_subreddit, objects])
 

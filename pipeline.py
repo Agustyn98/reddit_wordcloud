@@ -12,11 +12,7 @@ urls = {
     # + num_posts,
     "Republica_Argentina": "https://www.reddit.com/r/Republica_Argentina/top/.json?limit="
     + num_posts,
-    # "ArgentinaBenderStyle": "https://www.reddit.com/r/ArgentinaBenderStyle/top/.json?limit="
-    # + num_posts,
     "dankgentina": "https://www.reddit.com/r/dankgentina/top/.json?limit=" + num_posts,
-    # "BasedArgentina": "https://www.reddit.com/r/BasedArgentina/top/.json?limit="
-    # + num_posts,
     "Argaming": "https://www.reddit.com/r/Argaming/top/.json?limit=" + num_posts,
     "merval": "https://www.reddit.com/r/merval/top/.json?limit=" + num_posts,
 }

@@ -8,32 +8,9 @@ from datetime import datetime
 def transform(task_instance):
     spark = SparkSession.builder.appName("reddit post's pipeline").getOrCreate()
 
-    # sc = spark.sparkContext
-
     objects = task_instance.xcom_pull(task_ids="upload_to_storage", key="return_value")
 
-    #objects = [
-    #     [
-    #        "Republica_Argentina",
-    #        [
-    #            "datalake/Republica_Argentina/Republica_Argentina 1661383201.272909.json",
-    #            "datalake/Republica_Argentina/Republica_Argentina 1661383201.804338.json",
-    #            "datalake/Republica_Argentina/Republica_Argentina 1661383202.205802.json",
-    #        ],
-    #     ],
-    #    [
-    #        "dankgentina",
-    #        [
-    #            "datalake/dankgentina/dankgentina 1661383203.540719.json",
-    #            "datalake/dankgentina/dankgentina 1661383204.261579.json",
-    #            "datalake/dankgentina/dankgentina 1661383204.987588.json",
-    #        ],
-    #    ],
-    #]
-
     stop_words = spark.read.text("gs://reddit-posts2/stop_words.txt")
-    # broadcast_stopwords = sc.broadcast(stop_words)
-    # print(broadcast_stopwords)
 
     for object in objects:
         bucket_name = "reddit-posts2"
@@ -48,7 +25,6 @@ def transform(task_instance):
 
         paths = map(lambda s: "gs://" + bucket_name + "/" + s, paths)
         df = spark.read.text(paths)
-        # df = spark.read.text("post.json")
         rdd = df.rdd
         rdd = rdd.map(lambda s: s["value"])
         rdd = rdd.flatMap(lambda s: s.split(', "'))
@@ -64,10 +40,6 @@ def transform(task_instance):
             .replace('title":', "")
         )
 
-
-
-
-
         rdd = rdd.map(lambda s: s.encode().decode("raw_unicode_escape"))
 
         rdd = rdd.filter(
@@ -82,12 +54,6 @@ def transform(task_instance):
         rdd = rdd.map(
             lambda s: re.sub("\W+", " ", s)
         )  # remove non-alphanumeric characters, save for blank space
-
-
-        #dataColl = rdd.collect()
-        #for row in dataColl:
-        #    print(row)
-        
 
         a, b = "áéíóúü", "aeiouu"
         trans = str.maketrans(a, b)

@@ -13,3 +13,12 @@ these are spark's dependencies for gcs and bq
 5. Permissions: export GOOGLE_APPLICATION_CREDENTIALS="path/to/key.json"
 
 5. run the dag from airflow's UI
+
+
+Docker instructions:
+
+1. copy service account key to this folder as gcp_key.json
+2. docker build -t reddit_app .
+3. docker run -it -p 8080:8080 airflow standalone
+4. Run the pipeline from the UI, localhost:8080
+

@@ -197,6 +197,7 @@ esté
 estéis
 estén
 estés
+etc
 ex
 existe
 existen
