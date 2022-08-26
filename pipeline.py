@@ -25,7 +25,7 @@ with DAG(
         "retry_delay": timedelta(minutes=2),
     },
     schedule_interval=timedelta(days=1),
-    start_date=datetime(2021, 1, 1),
+    start_date=datetime(2021, 1, 1, 22, 0, 0),
     catchup=False,
 ) as dag:
 

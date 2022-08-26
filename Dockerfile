@@ -2,7 +2,7 @@ FROM ubuntu:22.04
 
 RUN apt-get update \
   && apt-get install -y --no-install-recommends \
-         python3-pip python3-venv default-jre  \
+         python3-pip default-jre  \
   && apt-get autoremove -yqq --purge \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
@@ -21,7 +21,7 @@ RUN pip install --no-cache-dir --upgrade pyspark && \
 # Spark dependencies (jars)
 COPY spark_dependencies/* /usr/local/lib/python3.10/dist-packages/pyspark/jars/
 
-COPY pipeline.py transformation.py functions.py stop_words.txt /airflow/dags/
+COPY pipeline.py transformation.py functions.py /airflow/dags/
 
 # Service account key
 COPY gcp_key.json ~/gcp_key.json
