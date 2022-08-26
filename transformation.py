@@ -31,7 +31,7 @@ def transform(task_instance):
     #    ],
     #]
 
-    stop_words = spark.read.text("stop_words.txt")
+    stop_words = spark.read.text("gs://reddit-posts2/datalake/stop_words.txt")
     # broadcast_stopwords = sc.broadcast(stop_words)
     # print(broadcast_stopwords)
 
