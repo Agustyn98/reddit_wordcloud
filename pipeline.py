@@ -26,7 +26,7 @@ with DAG(
     default_args={
         "depends_on_past": False,
         "retries": 1,
-        "retry_delay": timedelta(minutes=1),
+        "retry_delay": timedelta(minutes=2),
     },
     schedule_interval=timedelta(days=1),
     start_date=datetime(2021, 1, 1),
