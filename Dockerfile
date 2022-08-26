@@ -1,5 +1,4 @@
-FROM apache/airflow:2.3.4
-USER root
+FROM ubuntu:22.04
 
 RUN apt-get update \
   && apt-get install -y --no-install-recommends \
@@ -10,19 +9,23 @@ RUN apt-get update \
 
 
 ENV JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+ENV AIRFLOW_HOME=/airflow
 
-#go back to a normal user after installation is complete
-USER airflow
 
 # Python dependencies
 RUN pip install --no-cache-dir --upgrade pyspark && \
-    pip install --no-cache-dir google-cloud-storage 
+    pip install --no-cache-dir google-cloud-storage &&\
+    pip install --no-cache-dir "apache-airflow==2.3.4" --constraint "https://raw.githubusercontent.com/apache/airflow/constraints-2.3.4/constraints-3.10.txt"
+
 
 # Spark dependencies (jars)
-COPY spark_dependencies/* /usr/local/lib/python3.9/dist-packages/pyspark/jars/
-COPY --chown=airflow:root pipeline.py transformation.py functions.py stop_words.txt /opt/airflow/dags/
+COPY spark_dependencies/* /usr/local/lib/python3.10/dist-packages/pyspark/jars/
+
+COPY pipeline.py transformation.py functions.py stop_words.txt /airflow/dags/
 
 # Service account key
 COPY gcp_key.json ~/gcp_key.json
 ENV GOOGLE_APPLICATION_CREDENTIALS=~/gcp_key.json
 
+# Set timezone
+RUN apt-get update && DEBIAN_FRONTEND="noninteractive" TZ="America/New_York" apt-get install -y tzdata
