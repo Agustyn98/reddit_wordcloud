@@ -10,7 +10,6 @@ def transform(task_instance):
 
     objects = task_instance.xcom_pull(task_ids="upload_to_storage", key="return_value")
 
-
     for object in objects:
         bucket_name = "reddit-posts2"
         subreddit = object[0]
