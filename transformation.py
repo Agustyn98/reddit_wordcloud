@@ -63,6 +63,7 @@ def transform(task_instance):
         row = Row("word")
         df = rdd.map(row).toDF()
 
+        ## This is now done with a federated query
         # Removing stop words (la, los, aquí, etc.)
         #stop_words = spark.read.text("gs://reddit-posts2/stop_words.txt")
         #df = df.join(stop_words, df.word == stop_words.value, how="left_anti")
