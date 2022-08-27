@@ -28,6 +28,6 @@ COPY gcp_key.json ~/gcp_key.json
 ENV GOOGLE_APPLICATION_CREDENTIALS=~/gcp_key.json
 
 # Set timezone
-CMD["rm", "-rf", "/etc/localtime"]
-CMD["ln", "-s", "/usr/share/zoneinfo/America/Argentina/Mendoza", "/etc/localtime"]
+CMD ["rm", "-rf", "/etc/localtime"]
+CMD ["ln", "-s", "/usr/share/zoneinfo/America/Argentina/Mendoza", "/etc/localtime"]
 
