@@ -15,6 +15,7 @@ algunas
 alguno
 algunos
 algún
+algun
 alrededor
 ambos
 ampleamos
