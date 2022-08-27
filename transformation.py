@@ -64,8 +64,8 @@ def transform(task_instance):
         df = rdd.map(row).toDF()
 
         # Removing stop words (la, los, aquí, etc.)
-        stop_words = spark.read.text("gs://reddit-posts2/stop_words.txt")
-        df = df.join(stop_words, df.word == stop_words.value, how="left_anti")
+        #stop_words = spark.read.text("gs://reddit-posts2/stop_words.txt")
+        #df = df.join(stop_words, df.word == stop_words.value, how="left_anti")
 
         df = df.groupBy(df["word"]).count().sort(desc("count"))
         df = df.filter("count > 2")
