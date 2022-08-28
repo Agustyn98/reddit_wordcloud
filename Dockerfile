@@ -28,5 +28,6 @@ COPY gcp_key.json ~/gcp_key.json
 ENV GOOGLE_APPLICATION_CREDENTIALS=~/gcp_key.json
 
 # Set timezone
+RUN apt-get update && DEBIAN_FRONTEND="noninteractive" TZ="America/New_York" apt-get install -y tzdata
 RUN rm -rf /etc/localtime
 RUN ln -s /usr/share/zoneinfo/America/Argentina/Mendoza /etc/localtime
