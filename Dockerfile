@@ -28,5 +28,5 @@ COPY gcp_key.json ~/gcp_key.json
 ENV GOOGLE_APPLICATION_CREDENTIALS=~/gcp_key.json
 
 # Set timezone
-RUN sudo rm -rf /etc/localtime
-RUN sudo ln -s /usr/share/zoneinfo/America/Argentina/Mendoza /etc/localtime
+RUN rm -rf /etc/localtime
+RUN ln -s /usr/share/zoneinfo/America/Argentina/Mendoza /etc/localtime
