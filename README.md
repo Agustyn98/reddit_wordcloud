@@ -1,24 +1,64 @@
-Installation instructions:
+# Word cloud for Reddit
+Visual free form text representation of single words, grouped by subreddit and date
 
-1. create a virtual env
-python -m venv reddit_pipeline
+## About this project:
+This project is a data pipeline that scraps the top posts of any number of subreddits, filters and aggregates words in titles, descriptions and comments, and finally loads the data into BigQuery.
 
-2. install the dependencies from requirements.txt
+### Built With:
+*ARCHITECTURE PICTURE HERE*
+- Data Ingestion: Python running on Airflow
+- Workflow orchestration: Airflow
+- Data Lake: Google Cloud Storage
+- Data Warehouse: BigQuery
+- Batch Processing: PySpark
+- Visualization: Data Studio
 
-3. place the two .jar in lib/python3.10/pyspark/jars
-these are spark's dependencies for gcs and bq
+## Results and live dashboard
 
-4. copy pipeline.py, functions.py transformation.py and stop_words.txt to wherever your DAGs folder is configured to be
+- Examples
+    - /r/argentina, 28-08-2022
+        - *picture*
+    - /r/argaming week from 29-08-2022 to 05-08-2022
+        - *picture*
 
-5. Permissions: export GOOGLE_APPLICATION_CREDENTIALS="path/to/key.json"
+### Live dashboard
+[Live Dashboard on Data Studio](https://www.google.com)
 
-5. run the dag from airflow's UI
+## Instructions:
+
+### Prerequesites:
+- Terraform
+- Docker
+- A Google Cloud Platform account
+
+### Create a Google Cloud project
+1. Go to Google Cloud and create a new project.
+2. Go to IAM and create a Service Account with these roles:
+    BigQuery Admin,
+    Storage Admin
+
+3. Download the service account credentials and rename it to gcp_key.json
 
 
-Docker instructions:
+### Set up the infrastructure on Google Cloud:
+1. Open resources.tf and modify the project name.
+2. Set up authentication by running 
+```
+export GOOGLE_APPLICATION_CREDENTIALS=/path/to/gcp_key.json
+``` 
+3. Create the resources
+```
+terraform init
+```
+```
+terraform apply
+```
 
-1. copy service account key to this folder as gcp_key.json
-2. docker build -t reddit_app .
-3. docker run -it -p 8080:8080 airflow standalone
-4. Run the pipeline from the UI, localhost:8080
+### Running with Docker:
+
+1. Copy service account key to this repo's main folder
+2. ```docker build -t reddit_app .```
+3. ```docker run -it -p 8080:8080 airflow standalone```
+4. Go to localhost:8080 and use the username and password that appear on the terminal to log into airflow
+4. Run the pipeline from the UI at localhost:8080
 
