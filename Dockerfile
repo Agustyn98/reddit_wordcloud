@@ -21,7 +21,7 @@ RUN pip install --no-cache-dir --upgrade pyspark==3.3.0 && \
 # Spark dependencies (jars)
 COPY spark_dependencies/* /usr/local/lib/python3.10/dist-packages/pyspark/jars/
 
-COPY pipeline.py transformation.py functions.py /airflow/dags/
+COPY airflow/pipeline.py airflow/transformation.py airflow/functions.py /airflow/dags/
 
 # Service account key
 COPY gcp_key.json ~/gcp_key.json
