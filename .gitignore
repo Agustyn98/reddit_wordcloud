@@ -7,3 +7,5 @@ lib64
 pyvenv.cfg
 share/
 spark_gcp_connector.txt
+.terraform*
+terraform.tfstate
