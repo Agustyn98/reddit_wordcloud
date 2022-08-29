@@ -9,6 +9,8 @@ ahora
 ahí
 ahi
 al
+alla
+alli
 algo
 alguna
 algunas
@@ -267,6 +269,7 @@ hacerlo
 haces
 hacia
 haciendo
+haria
 hago
 han
 has
@@ -395,6 +398,9 @@ para
 parece
 parte
 partir
+pasa
+pasar
+paso
 pasada
 pasado
 pero
@@ -463,6 +469,8 @@ saben
 saber
 sabes
 se
+salir
+salio
 sea
 seamos
 sean
@@ -634,12 +642,15 @@ usted
 va
 vas
 vais
+viene
 valor
 vamos
 van
 varias
 varios
 vaya
+ve
+veo
 veces
 ver
 verdad
@@ -667,3 +678,12 @@ yo
 últimas
 último
 últimos
+pasa
+pasar
+paso
+the
+of
+is
+for
+to
+that
