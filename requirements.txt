@@ -1,3 +1,0 @@
-airflow (install from the instructions on wiki)
-pyspark
-google-cloud-storage

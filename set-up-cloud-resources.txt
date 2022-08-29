@@ -1,5 +1,0 @@
-Requirements:
-a gcp service account's json key with read/write access to GCS/BQ
-GCS bucket called reddit-posts2
-BQ dataset called reddit_dataset, the table is created automatically by the app
-
