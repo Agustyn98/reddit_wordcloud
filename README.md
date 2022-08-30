@@ -6,14 +6,16 @@ This project is a data pipeline that scraps the top posts of any number of subre
 
 ### Built With:
 
-![new_diagram](https://user-images.githubusercontent.com/66125885/187458469-97bb1cf7-d008-4180-8dc3-00db3002e44a.jpeg)
-
 - Data Ingestion: Python running on Airflow
 - Workflow orchestration: Airflow
 - Data Lake: Google Cloud Storage
 - Data Warehouse: BigQuery
 - Batch Processing: PySpark
 - Visualization: Data Studio
+
+![new_diagram](https://user-images.githubusercontent.com/66125885/187458469-97bb1cf7-d008-4180-8dc3-00db3002e44a.jpeg)
+
+
 
 ## Results and live dashboard
 
