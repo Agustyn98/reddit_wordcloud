@@ -5,7 +5,9 @@ Visual free form text representation of single words, grouped by subreddit and d
 This project is a data pipeline that scraps the top posts of any number of subreddits, filters and aggregates words in titles, descriptions and comments, and finally loads the data into BigQuery.
 
 ### Built With:
-*ARCHITECTURE PICTURE HERE*
+
+![new_diagram](https://user-images.githubusercontent.com/66125885/187458469-97bb1cf7-d008-4180-8dc3-00db3002e44a.jpeg)
+
 - Data Ingestion: Python running on Airflow
 - Workflow orchestration: Airflow
 - Data Lake: Google Cloud Storage
@@ -16,8 +18,9 @@ This project is a data pipeline that scraps the top posts of any number of subre
 ## Results and live dashboard
 
 - Examples
-    - /r/argentina, 28-08-2022
-        - *picture*
+    - /r/argentina, 29-08-2022
+    ![Screenshot_2022-08-30_11-08-01](https://user-images.githubusercontent.com/66125885/187459857-b189b0e1-d7eb-4c3c-8e3c-e973bd4bcb77.png)
+
     - /r/argaming week from 29-08-2022 to 05-08-2022
         - *picture*
 
