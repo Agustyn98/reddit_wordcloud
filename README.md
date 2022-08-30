@@ -13,7 +13,7 @@ This project is a data pipeline that scraps the top posts of any number of subre
 - Batch Processing: PySpark
 - Visualization: Data Studio
 
-![new_diagram](https://user-images.githubusercontent.com/66125885/187458469-97bb1cf7-d008-4180-8dc3-00db3002e44a.jpeg)
+![new_diagram](https://user-images.githubusercontent.com/66125885/187461650-b954c88d-3cc6-4ef9-9746-9df777e3999e.jpeg)
 
 
 
