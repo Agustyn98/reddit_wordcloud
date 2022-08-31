@@ -20,11 +20,13 @@ This project is a data pipeline that scraps the top posts of any number of subre
 ## Results and live dashboard
 
 - Examples
-    - /r/argentina, 29-08-2022
-    ![Screenshot_2022-08-30_11-08-01](https://user-images.githubusercontent.com/66125885/187459857-b189b0e1-d7eb-4c3c-8e3c-e973bd4bcb77.png)
 
-    - /r/argaming week from 29-08-2022 to 05-08-2022
-        - *picture*
+/r/argentina, 29-08-2022:
+
+<img src="https://user-images.githubusercontent.com/66125885/187459857-b189b0e1-d7eb-4c3c-8e3c-e973bd4bcb77.png" width=50% height=50%>
+
+/r/argaming week from 29-08-2022 to 05-08-2022
+*picture*
 
 ### Live dashboard
 [Live Dashboard on Data Studio](https://datastudio.google.com/reporting/2f43e030-9bdb-4a70-a9b3-f0ec6d3c270b)
