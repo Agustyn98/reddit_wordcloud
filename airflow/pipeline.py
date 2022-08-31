@@ -6,15 +6,11 @@ from transformation import transform
 from functions import get_top_posts, get_posts, upload_files
 
 
-num_posts = "30"
+num_posts = "35"
 urls = {
     "argentina": "https://www.reddit.com/r/argentina/top/.json?limit=" + num_posts,
-    "devsarg": "https://www.reddit.com/r/devsarg/top/.json?limit=" + num_posts,
-    "Republica_Argentina": "https://www.reddit.com/r/Republica_Argentina/top/.json?limit="
-    + num_posts,
-    "dankgentina": "https://www.reddit.com/r/dankgentina/top/.json?limit=" + num_posts,
+    #"dankgentina": "https://www.reddit.com/r/dankgentina/top/.json?limit=" + num_posts,
     "Argaming": "https://www.reddit.com/r/Argaming/top/.json?limit=" + num_posts,
-    "merval": "https://www.reddit.com/r/merval/top/.json?limit=" + num_posts,
 }
 
 with DAG(
