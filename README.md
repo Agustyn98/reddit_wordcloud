@@ -21,12 +21,13 @@ This project is a data pipeline that scraps the top posts of any number of subre
 
 - Examples
 
-/r/argentina, 29-08-2022:
+/r/argentina, 2022-09-02, right after the assasination attempt against the vice-president:
 
-<img src="https://user-images.githubusercontent.com/66125885/187459857-b189b0e1-d7eb-4c3c-8e3c-e973bd4bcb77.png" width=50% height=50%>
+<img src="https://user-images.githubusercontent.com/66125885/188246702-ee1ad7db-1187-4994-a79d-1ccf95ba5e27.png" width=50% height=50%>
 
-/r/argaming week from 29-08-2022 to 05-08-2022
-*picture*
+/r/argaming, 2022-08-31
+<img src="https://user-images.githubusercontent.com/66125885/188246872-3cdc6f52-614a-4664-9c0a-269f0ec0c281.png" width=50% height=50%>
+
 
 ### Live dashboard
 [Live Dashboard on Data Studio](https://datastudio.google.com/reporting/2f43e030-9bdb-4a70-a9b3-f0ec6d3c270b)
