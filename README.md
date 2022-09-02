@@ -26,6 +26,7 @@ This project is a data pipeline that scraps the top posts of any number of subre
 <img src="https://user-images.githubusercontent.com/66125885/188246702-ee1ad7db-1187-4994-a79d-1ccf95ba5e27.png" width=50% height=50%>
 
 /r/argaming, 2022-08-31
+
 <img src="https://user-images.githubusercontent.com/66125885/188246872-3cdc6f52-614a-4664-9c0a-269f0ec0c281.png" width=50% height=50%>
 
 
