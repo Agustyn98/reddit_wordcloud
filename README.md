@@ -19,6 +19,10 @@ This project is a data pipeline that scraps the top posts of any number of subre
 
 ## Results and live dashboard
 
+### Live dashboard
+[Live Dashboard on Data Studio](https://datastudio.google.com/reporting/2f43e030-9bdb-4a70-a9b3-f0ec6d3c270b)
+
+
 - Examples
 
 /r/argentina, 2022-09-02, right after the assasination attempt against the vice-president:
@@ -30,8 +34,6 @@ This project is a data pipeline that scraps the top posts of any number of subre
 <img src="https://user-images.githubusercontent.com/66125885/188246872-3cdc6f52-614a-4664-9c0a-269f0ec0c281.png" width=50% height=50%>
 
 
-### Live dashboard
-[Live Dashboard on Data Studio](https://datastudio.google.com/reporting/2f43e030-9bdb-4a70-a9b3-f0ec6d3c270b)
 
 ## Instructions:
 
