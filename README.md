@@ -20,7 +20,7 @@ This project is a data pipeline that scraps the top posts of any number of subre
 ## Results and live dashboard
 
 ### Live dashboard
-[Live Dashboard on Data Studio](https://datastudio.google.com/reporting/2f43e030-9bdb-4a70-a9b3-f0ec6d3c270b)
+[Live Dashboard on Data Studio](https://datastudio.google.com/reporting/1a300b76-d9ba-4688-9182-83524996fda3)
 
 
 - Examples
