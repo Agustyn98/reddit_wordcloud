@@ -15,13 +15,10 @@ This project is a data pipeline that scraps the top posts of any number of subre
 
 ![new_diagram](https://user-images.githubusercontent.com/66125885/187461650-b954c88d-3cc6-4ef9-9746-9df777e3999e.jpeg)
 
-
-
-## Results and live dashboard
-
-### Live dashboard
+## Live dashboard
 [Live Dashboard on Data Studio](https://datastudio.google.com/reporting/1a300b76-d9ba-4688-9182-83524996fda3)
 
+## Results 
 
 - Examples
 
